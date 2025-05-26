@@ -3,7 +3,7 @@ const {
   withModuleFederationPlugin,
 } = require("@angular-architects/module-federation/webpack");
 
-module.exports = withModuleFederationPlugin({
+const mfConfig = withModuleFederationPlugin({
   name: "poc-provider",
 
   exposes: {
@@ -18,3 +18,14 @@ module.exports = withModuleFederationPlugin({
     }),
   },
 });
+// liberar cors
+mfConfig.devServer = {
+  port: 4203,
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,OPTIONS,HEAD",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  },
+};
+
+module.exports = mfConfig;
