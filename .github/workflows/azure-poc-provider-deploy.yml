@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "projects/plataform/**"
+      - "**"
       - "package.json"
       - "package-lock.json"
   pull_request:
@@ -39,6 +39,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           skip_app_build: true
-          app_location: dist/plataform
+          app_location: dist/poc-provider
           api_location: ""
           output_location: ""
